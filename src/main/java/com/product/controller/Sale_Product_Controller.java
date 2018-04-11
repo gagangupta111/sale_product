@@ -8,6 +8,9 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
+// postman collection here.
+// https://www.getpostman.com/collections/b92a0738d2285b9c171b
+
 @RestController
 @RequestMapping("/Sales")
 public class Sale_Product_Controller {
