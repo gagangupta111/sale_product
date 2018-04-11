@@ -1,0 +1,39 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "com.product.entity.Sale" table = "Sale">
+
+        <meta attribute = "class-description">
+            This class contains the Sale detail.
+        </meta>
+
+        <id name = "saleID" type = "int" column = "saleID">
+            <generator class="native"/>
+        </id>
+
+        <property name = "saleDate" column = "saleDate" type = "java.util.Date"/>
+        <property name = "saleAmount" column = "saleAmount" type = "int"/>
+
+        <many-to-one name = "product" column = "productID" unique="true"
+                     class="com.product.entity.Product" not-null="true" lazy="false"/>
+
+    </class>
+
+    <class name = "com.product.entity.Product" table="Product">
+
+        <meta attribute = "class-description">
+            This class contains the Product detail.
+        </meta>
+
+        <id name = "productID" type = "int" column = "productID">
+            <generator class="native"/>
+        </id>
+
+        <property name = "productName" column = "productName" type = "string"/>
+
+    </class>
+
+</hibernate-mapping>
