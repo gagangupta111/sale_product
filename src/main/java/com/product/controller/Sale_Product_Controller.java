@@ -18,7 +18,6 @@ public class Sale_Product_Controller {
     @Autowired
     private Sale_Product_Service sale_product_service;
 
-
     @RequestMapping(method = RequestMethod.GET)
     public Collection<Sale> getAllSales(){
         return sale_product_service.getAllSales();

@@ -54,6 +54,21 @@ public class Sale implements java.io.Serializable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Sale sale = (Sale) o;
+
+        return saleID == sale.saleID;
+    }
+
+    @Override
+    public int hashCode() {
+        return saleID;
+    }
+
+    @Override
     public String toString() {
         return "Sale{" +
                 "saleID=" + saleID +

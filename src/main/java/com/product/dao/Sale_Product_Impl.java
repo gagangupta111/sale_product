@@ -54,7 +54,7 @@ public class Sale_Product_Impl implements Sale_Product_Dao {
         try {
 
             tx = session.beginTransaction();
-            product = (Product) session.load(Product.class, productID);
+            product =  (Product) session.get(Product.class, productID);
             tx.commit();
 
         } catch (HibernateException e) {

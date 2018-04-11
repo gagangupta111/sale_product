@@ -34,6 +34,21 @@ public class Product implements java.io.Serializable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Product product = (Product) o;
+
+        return productID == product.productID;
+    }
+
+    @Override
+    public int hashCode() {
+        return productID;
+    }
+
+    @Override
     public String toString() {
         return "Product{" +
                 "productID=" + productID +
