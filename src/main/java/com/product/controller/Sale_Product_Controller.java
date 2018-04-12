@@ -70,4 +70,9 @@ public class Sale_Product_Controller {
         sale_product_service.deleteProduct(id);
     }
 
+    @RequestMapping(value = "/products/sales_amount/{id}", method = RequestMethod.GET)
+    public int getTotalSalesByProductID(@PathVariable("id") int id){
+        return sale_product_service.getAllSalesAmount(id);
+    }
+
 }

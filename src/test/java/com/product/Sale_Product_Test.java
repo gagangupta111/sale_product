@@ -154,5 +154,12 @@ public class Sale_Product_Test {
                 .andExpect(content().string(containsString("product100")));
     }
 
+    @Test
+    public void test_k_Get() throws Exception {
+
+        this.mockMvc.perform(get("/Sales/products/sales_amount/1"))
+                .andDo(print())
+                .andExpect(content().string(containsString("800")));
+    }
 
 }
