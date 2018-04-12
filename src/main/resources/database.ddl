@@ -1,3 +1,4 @@
+create database openshiftapp1;
 use openshiftapp1;
 create table Sale (
 
