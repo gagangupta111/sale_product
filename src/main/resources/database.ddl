@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS openshiftapp1;
 create database openshiftapp1;
 use openshiftapp1;
 create table Sale (
