@@ -15,13 +15,17 @@ import java.util.List;
 @Qualifier("HibernateData")
 public class Sale_Product_Impl implements Sale_Product_Dao {
 
-    private static SessionFactory factory = new Configuration().configure().buildSessionFactory();
+    private SessionFactory sessionFactory;
+
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     public static void main(String[] args) {
 
         try {
 
-            factory = new Configuration().configure().buildSessionFactory();
+            SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
         } catch (Throwable ex) {
 
@@ -47,7 +51,7 @@ public class Sale_Product_Impl implements Sale_Product_Dao {
 
     public Product getProduct( int productID ) {
 
-        Session session = factory.openSession();
+        Session session = sessionFactory.openSession();
         Transaction tx = null;
         Product product = null;
 
@@ -74,7 +78,7 @@ public class Sale_Product_Impl implements Sale_Product_Dao {
 
     public Product createProduct(String productName) {
 
-        Session session = factory.openSession();
+        Session session =sessionFactory.openSession();
         Transaction tx = null;
         Product product = null;
         Integer productID;
@@ -104,7 +108,7 @@ public class Sale_Product_Impl implements Sale_Product_Dao {
 
     public Product updateProduct(Product product) {
 
-        Session session = factory.openSession();
+        Session session =sessionFactory.openSession();
         Transaction tx = null;
         Product fetchedProduct = null;
 
@@ -133,7 +137,7 @@ public class Sale_Product_Impl implements Sale_Product_Dao {
 
     public void deleteProduct( int productID ) {
 
-        Session session = factory.openSession();
+        Session session =sessionFactory.openSession();
         Transaction tx = null;
         Product product = null;
 
@@ -159,7 +163,7 @@ public class Sale_Product_Impl implements Sale_Product_Dao {
 
     public List<Product> getAllProducts( ){
 
-        Session session = factory.openSession();
+        Session session =sessionFactory.openSession();
         Transaction tx = null;
         List<Product> products = null;
         Product product;
@@ -187,7 +191,7 @@ public class Sale_Product_Impl implements Sale_Product_Dao {
 
     public Sale createSale( Sale sale){
 
-        Session session = factory.openSession();
+        Session session =sessionFactory.openSession();
         Transaction tx = null;
         Integer saleID;
 
@@ -215,7 +219,7 @@ public class Sale_Product_Impl implements Sale_Product_Dao {
 
     public Sale updateSale( Sale sale ){
 
-        Session session = factory.openSession();
+        Session session =sessionFactory.openSession();
         Transaction tx = null;
         Sale fetchedSale = null;
 
@@ -248,7 +252,7 @@ public class Sale_Product_Impl implements Sale_Product_Dao {
 
     public void deleteSale( int saleID ){
 
-        Session session = factory.openSession();
+        Session session =sessionFactory.openSession();
         Transaction tx = null;
         Sale sale = null;
 
@@ -275,7 +279,7 @@ public class Sale_Product_Impl implements Sale_Product_Dao {
 
     public Sale getSale( int saleID ){
 
-        Session session = factory.openSession();
+        Session session =sessionFactory.openSession();
         Transaction tx = null;
         Sale sale = null;
 
@@ -303,7 +307,7 @@ public class Sale_Product_Impl implements Sale_Product_Dao {
 
     public List<Sale> getAllSales( ){
 
-        Session session = factory.openSession();
+        Session session =sessionFactory.openSession();
         Transaction tx = null;
         List<Sale> sales = null;
 
@@ -335,7 +339,7 @@ public class Sale_Product_Impl implements Sale_Product_Dao {
 
     public int getAllSalesAmount( int productID ){
 
-        Session session = factory.openSession();
+        Session session =sessionFactory.openSession();
         Transaction tx = null;
         List<Sale> sales = null;
         Product product;

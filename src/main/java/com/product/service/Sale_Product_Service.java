@@ -6,6 +6,7 @@ import com.product.entity.Sale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -69,7 +70,8 @@ public class Sale_Product_Service {
 
     }
 
-    public Product updateProduct(Product product){
+    @Transactional
+    public Product updateProduct(Product product) throws Exception {
 
         return sale_product_dao.updateProduct(product);
 

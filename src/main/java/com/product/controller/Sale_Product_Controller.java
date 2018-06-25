@@ -61,7 +61,7 @@ public class Sale_Product_Controller {
     }
 
     @RequestMapping(value = "/products/update", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Product updateProduct(@RequestBody Product product){
+    public Product updateProduct(@RequestBody Product product) throws Exception {
         return sale_product_service.updateProduct(product);
     }
 
